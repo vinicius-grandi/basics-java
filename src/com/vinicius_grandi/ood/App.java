@@ -2,7 +2,13 @@ package com.vinicius_grandi.ood;
 
 public class App {
     private static void login(User user) {
-        System.out.println(user.firstName + " is logged in");
+        System.out.println(user.getFullName() + " is logged in");
+        user.setLogged(true);
+    }
+
+    private static void logout(User user) {
+        System.out.println(user.getFullName() + " is logged out");
+        user.setLogged(false);
     }
 
     private static Guitar createNewGuitar(String brand, int strings) {
@@ -13,10 +19,13 @@ public class App {
     }
 
     public static void main(String[] args) {
-        User userA = new User("João", "Paulo");
-        login(userA);
+        User userA = new User("Ligma", "Ballz");
+        User userB = new User("Paula", "Tejando");
 
-        User userB = new User("Paulaa", "Tejando");
+        login(userA);
         login(userB);
+
+        logout(userA);
+        logout(userB);
     }
 }
