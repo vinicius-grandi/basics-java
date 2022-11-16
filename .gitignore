@@ -1,1 +1,9 @@
-/out
+out
+.idea/
+*.iml
+*.iws
+*.class
+bin/
+build/
+/bin1/
+java/build/**
