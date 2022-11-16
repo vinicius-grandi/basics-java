@@ -20,12 +20,11 @@ public class App {
     }
 
     private static void getAllGuitars() {
-        // type List<> is used to create a list with undetermined length
+        // type ArrayList<> is used to create a list with undetermined length
         List<Guitar> guitars = new ArrayList<>();
         for (int i = 0; i < 10; i += 1) {
             guitars.add(new Guitar("Fender", i));
         }
-
         for (Guitar guitar : guitars) {
             System.out.println(guitar.getBrand());
         }
