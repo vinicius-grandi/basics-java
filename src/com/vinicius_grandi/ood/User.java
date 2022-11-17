@@ -42,6 +42,8 @@ abstract class Person {
 }
 
 public class User extends Person {
+    // static property is the same across all instances of User
+    static private int count;
     private boolean isLogged;
     User(String firstName, String lastName) {
         super(firstName, lastName);
@@ -73,5 +75,13 @@ public class User extends Person {
         }
         return String.format("User {\n\tfirstName = %s;\n\tlastName = %s; \n}", getFirstName(),
                 getLastName());
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public void incrementCount() {
+        this.count += 1;
     }
 }
