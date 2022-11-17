@@ -1,5 +1,7 @@
 package com.vinicius_grandi.ood;
 
+import java.util.Objects;
+
 abstract class Person {
     final private String firstName;
     final private String lastName;
@@ -24,6 +26,19 @@ abstract class Person {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
+    }
 }
 
 public class User extends Person {
@@ -45,5 +60,18 @@ public class User extends Person {
             System.out.println("The secret is your" + this.getLastName());
         }
         isLogged = logged;
+    }
+
+    public String toString() {
+        return String.format("User {\n\tfirstName = %s;\n\tlastName = %s; \n}", getFirstName(),
+                getLastName());
+    }
+
+    public String toString(boolean returnHash) {
+        if (returnHash) {
+            return super.toString();
+        }
+        return String.format("User {\n\tfirstName = %s;\n\tlastName = %s; \n}", getFirstName(),
+                getLastName());
     }
 }
